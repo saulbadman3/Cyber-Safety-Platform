@@ -1,0 +1,46 @@
+{
+  "note": "Тимчасові тексти. Замінити на реальні з таблиці команди.",
+  "questionnaire_version": "pilot-1",
+  "categories": [
+    {"slug": "access", "title": "Паролі й доступи", "position": 1},
+    {"slug": "mfa", "title": "Багатофакторна автентифікація", "position": 2},
+    {"slug": "backups", "title": "Резервні копії", "position": 3},
+    {"slug": "updates", "title": "Оновлення ПЗ і пристрої", "position": 4},
+    {"slug": "phishing", "title": "Фішинг та електронна пошта", "position": 5},
+    {"slug": "training", "title": "Навчання персоналу", "position": 6},
+    {"slug": "data-network", "title": "Дані клієнтів і мережа", "position": 7},
+    {"slug": "incident-response", "title": "Реагування на інциденти", "position": 8}
+  ],
+  "questions": [
+    {"slug":"unique-passwords","category":"access","text":"Чи використовують працівники унікальні паролі для робочих облікових записів?","hint":"Повторне використання пароля дає зловмиснику доступ до кількох сервісів після одного витоку.","probability":4,"impact":4,"weight":4,"recommendation":"password-manager","position":1},
+    {"slug":"account-review","category":"access","text":"Чи переглядаєте ви доступи працівників і вимикаєте облікові записи після звільнення?","hint":"Застарілі облікові записи залишають непотрібні точки входу.","probability":3,"impact":4,"weight":3,"recommendation":"access-review","position":2},
+    {"slug":"mfa-email","category":"mfa","text":"Чи ввімкнена багатофакторна автентифікація для пошти та критичних сервісів?","hint":"Другий фактор знижує ризик входу викраденим паролем.","probability":4,"impact":5,"weight":4,"recommendation":"enable-mfa","position":3},
+    {"slug":"mfa-admin","category":"mfa","text":"Чи захищені облікові записи адміністраторів окремим фактором і резервним способом входу?","hint":"Адміністраторський доступ може змінити налаштування всього бізнесу.","probability":3,"impact":5,"weight":3,"recommendation":"admin-mfa","position":4},
+    {"slug":"backup-schedule","category":"backups","text":"Чи створюються резервні копії важливих даних за регулярним графіком?","hint":"Копія допомагає відновити роботу після помилки, поломки чи атаки.","probability":3,"impact":5,"weight":3,"recommendation":"backup-schedule","position":5},
+    {"slug":"backup-restore","category":"backups","text":"Чи перевіряли ви відновлення даних із резервної копії протягом останніх 6 місяців?","hint":"Неперевірена копія може виявитися пошкодженою або неповною.","probability":4,"impact":5,"weight":4,"recommendation":"restore-test","position":6},
+    {"slug":"patching","category":"updates","text":"Чи встановлюєте ви оновлення операційних систем і програм у розумний строк?","hint":"Оновлення виправляють відомі вразливості, які вже можуть використовуватися.","probability":4,"impact":4,"weight":4,"recommendation":"update-routine","position":7},
+    {"slug":"device-protection","category":"updates","text":"Чи захищені робочі пристрої блокуванням екрана, шифруванням і актуальним захистом від шкідливих програм?","hint":"Втрата або крадіжка незахищеного пристрою може розкрити робочі дані.","probability":3,"impact":4,"weight":3,"recommendation":"device-baseline","position":8},
+    {"slug":"email-check","category":"phishing","text":"Чи перевіряють працівники адресу відправника та посилання перед відкриттям вкладень?","hint":"Підроблена адреса або терміновий запит часто є першою ознакою фішингу.","probability":5,"impact":4,"weight":4,"recommendation":"email-checklist","position":9},
+    {"slug":"payment-change","category":"phishing","text":"Чи підтверджуєте ви іншим каналом неочікувану зміну платіжних реквізитів?","hint":"Шахраї часто втручаються в листування про оплату й підмінюють рахунок.","probability":4,"impact":5,"weight":4,"recommendation":"payment-verification","position":10},
+    {"slug":"staff-training","category":"training","text":"Чи проходить команда коротке навчання з кібербезпеки щонайменше раз на рік?","hint":"Регулярне навчання допомагає розпізнати типові атаки до натискання на посилання.","probability":3,"impact":3,"weight":2,"recommendation":"annual-training","position":11},
+    {"slug":"reporting-channel","category":"training","text":"Чи знають працівники, кому й як швидко повідомити про підозрілий лист або втрачений пристрій?","hint":"Швидке повідомлення дає змогу раніше заблокувати доступ і зменшити наслідки.","probability":3,"impact":4,"weight":3,"recommendation":"reporting-channel","position":12},
+    {"slug":"customer-data","category":"data-network","text":"Чи надаєте доступ до даних клієнтів лише тим працівникам, яким він потрібен для роботи?","hint":"Мінімально необхідний доступ обмежує наслідки помилок і компрометації акаунтів.","probability":3,"impact":5,"weight":3,"recommendation":"data-access","position":13},
+    {"slug":"incident-plan","category":"incident-response","text":"Чи маєте короткий план дій і контакти відповідальних на випадок кіберінциденту?","hint":"Підготовлений порядок дій зменшує плутанину в перші години інциденту.","probability":3,"impact":5,"weight":3,"recommendation":"incident-playbook","position":14}
+  ],
+  "recommendations": [
+    {"slug":"password-manager","title":"Упровадити менеджер паролів","description":"Налаштуйте командний менеджер паролів, унікальні фрази та окремі робочі облікові записи.","cost_min":0,"cost_max":6000,"complexity":"Низька","risk_reduction":12,"lesson_slug":"passwords"},
+    {"slug":"access-review","title":"Переглянути доступи","description":"Складіть список акаунтів, призначте власників і вимикайте доступ у день завершення співпраці.","cost_min":0,"cost_max":2500,"complexity":"Низька","risk_reduction":10,"lesson_slug":"access"},
+    {"slug":"enable-mfa","title":"Увімкнути MFA для критичних акаунтів","description":"Почніть із пошти, банку, хмарного сховища та сервісів адміністрування.","cost_min":0,"cost_max":3000,"complexity":"Низька","risk_reduction":18,"lesson_slug":"mfa"},
+    {"slug":"admin-mfa","title":"Захистити адміністраторські акаунти","description":"Відокремте щоденні акаунти від адміністраторських і налаштуйте резервні коди.","cost_min":0,"cost_max":3500,"complexity":"Середня","risk_reduction":16,"lesson_slug":"mfa"},
+    {"slug":"backup-schedule","title":"Налаштувати графік копій","description":"Визначте важливі дані, частоту резервування та окреме місце зберігання.","cost_min":500,"cost_max":9000,"complexity":"Середня","risk_reduction":20,"lesson_slug":"backups"},
+    {"slug":"restore-test","title":"Перевірити відновлення","description":"Відновіть тестову копію в окреме місце й зафіксуйте час та результат.","cost_min":0,"cost_max":5000,"complexity":"Середня","risk_reduction":18,"lesson_slug":"backups"},
+    {"slug":"update-routine","title":"Встановити рутину оновлень","description":"Увімкніть автоматичні оновлення та призначте щотижневу перевірку критичних пристроїв.","cost_min":0,"cost_max":5000,"complexity":"Низька","risk_reduction":14,"lesson_slug":"devices"},
+    {"slug":"device-baseline","title":"Задати базові налаштування пристроїв","description":"Увімкніть блокування, шифрування диска, антивірус і можливість віддаленого стирання.","cost_min":0,"cost_max":12000,"complexity":"Середня","risk_reduction":14,"lesson_slug":"devices"},
+    {"slug":"email-checklist","title":"Запровадити перевірку листів","description":"Перевіряйте домен відправника, контекст прохання, адреси посилань і неочікувані вкладення.","cost_min":0,"cost_max":2000,"complexity":"Низька","risk_reduction":15,"lesson_slug":"phishing"},
+    {"slug":"payment-verification","title":"Підтверджувати зміни платежів","description":"Погодьте з командою зворотний дзвінок за відомим номером для перевірки реквізитів.","cost_min":0,"cost_max":1500,"complexity":"Низька","risk_reduction":17,"lesson_slug":"phishing"},
+    {"slug":"annual-training","title":"Провести коротке навчання","description":"Організуйте практичний 20-хвилинний розбір листів і способів повідомлення про інцидент.","cost_min":0,"cost_max":4000,"complexity":"Низька","risk_reduction":10,"lesson_slug":"people"},
+    {"slug":"reporting-channel","title":"Створити канал повідомлення","description":"Визначте основну й резервну контактну особу та короткий шаблон повідомлення.","cost_min":0,"cost_max":1000,"complexity":"Низька","risk_reduction":9,"lesson_slug":"people"},
+    {"slug":"data-access","title":"Обмежити доступ до даних","description":"Згрупуйте ролі, перегляньте спільні посилання й регулярно перевіряйте дозволи.","cost_min":0,"cost_max":5000,"complexity":"Середня","risk_reduction":14,"lesson_slug":"data"},
+    {"slug":"incident-playbook","title":"Підготувати план реагування","description":"Запишіть кроки ізоляції пристрою, блокування акаунта, збереження доказів і контактів.","cost_min":0,"cost_max":3000,"complexity":"Середня","risk_reduction":16,"lesson_slug":"response"}
+  ]
+}
