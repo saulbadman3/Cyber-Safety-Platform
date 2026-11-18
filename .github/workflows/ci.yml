@@ -63,7 +63,4 @@ jobs:
         run: pnpm e2e
 
       - working-directory: frontend
-        run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
-
-      - working-directory: frontend
-        run: npm audit --audit-level=high
+        run: pnpm audit --audit-level=high
